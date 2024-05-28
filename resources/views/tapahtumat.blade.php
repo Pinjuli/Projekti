@@ -1,13 +1,9 @@
 <!--   Tässä sivussa näkee kaikki tapahtumat mitä on laittanut,
- niitä pystyy muokkaamaan ja poistamaan        --->
+ niitä pystyy muokkaamaan ja poistamaan (tai no, se oli tavoitteena)       --->
 
  
  <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Testi') }}
-        </h2>
-    </x-slot>
+   
 <h2><u>Kaikki tapahtumat</u></h2>
 
 <br><br>
@@ -16,7 +12,7 @@
 <table class="table table-bordered">
     <tr>
       <th>Tapahtuma</th>
-      <th>Pisteet</th> 
+      <th class="piste_otsikko">Pisteet</th> 
       <th width="60%">Toiminnat</th>
     </tr>
    
@@ -24,7 +20,7 @@
     @foreach ($tapahtumat as $tapahtuma)
         <tr>
             <td>{{$tapahtuma['tapahtuma']}}</td>
-            <td>{{$tapahtuma['pisteet']}}</td>
+            <td class="pisteet">{{$tapahtuma['pisteet']}}</td>
             <td>
                 <a href="{{route('naytatapahtuma', ['tapahtuma'=>$tapahtuma['id']])}}">Katso</a>
               
@@ -44,7 +40,14 @@
 
 
 <style>
+.piste_otsikko{
+    text-align: center;
+}
 
+.pisteet{
+    text-align: center;
+}
+    
 h2{
     text-align: center;
     margin-top: 5%;
